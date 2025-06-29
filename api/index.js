@@ -11,7 +11,7 @@ const app = express();
 app.use(morgan("tiny"));
 app.use(express.json());
 
-mongoose.connect(process.env.MONGOBD_URL)
+mongoose.connect(process.env.MONGODB_URL)
     .then(() => console.log("Mongo DB Connected!"))
     .catch((e) => console.error('MongoDB connection error:', e));
 
