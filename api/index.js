@@ -2,9 +2,9 @@ import express from 'express';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import 'dotenv/config';
-import taskRoute from './Routes/task.js';
-import authRoute from './Routes/auth.js';
-import userRouter from './Routes/user.js';
+import taskRoute from '../Routes/task.js';
+import authRoute from '../Routes/auth.js';
+import userRouter from '../Routes/user.js';
 
 const app = express();
 
