@@ -23,13 +23,9 @@ app.get("/", (req, res) => {
     res.send("Your Express API is working!");
 });
 
-// 👇 Only run app.listen if NOT in Vercel
-if (process.env.NODE_ENV !== "production") {
-    const PORT = process.env.PORT || 4000;
-    app.listen(PORT, () => {
-        console.log("Server running locally on PORT:", PORT);
-    });
-}
 
-// 👇 Export for Vercel
-export default app;
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+    console.log("Server running locally on PORT:", PORT);
+});
