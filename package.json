@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "build": "echo 'Build completed'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -20,5 +21,8 @@
     "mongoose": "^8.15.1",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

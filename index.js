@@ -23,9 +23,13 @@ app.get("/", (req, res) => {
     res.send("Your Express API is working!");
 });
 
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 4000;
+    app.listen(PORT, () => {
+        console.log("Server running locally on PORT:", PORT);
+    });
+}
 
-
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-    console.log("Server running locally on PORT:", PORT);
-});
+// Export for Vercel serverless
+export default app;
