@@ -5,11 +5,19 @@ import 'dotenv/config';
 import taskRoute from './Routes/task.js';
 import authRoute from './Routes/auth.js';
 import userRouter from './Routes/user.js';
+import cors from 'cors';
 
 const app = express();
 
 app.use(morgan("tiny"));
 app.use(express.json());
+
+app.use(cors({
+    origin: `http://localhost:5173`,
+    credentials: true,
+    methods: ['GET', 'POST'],
+}));
+
 
 mongoose.connect(process.env.MONGODB_URL)
     .then(() => console.log("Mongo DB Connected!"))
@@ -23,13 +31,11 @@ app.get("/", (req, res) => {
     res.send("Your Express API is working!");
 });
 
-// For local development
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 4000;
     app.listen(PORT, () => {
-        console.log("Server running locally on PORT:", PORT);
+        console.log(`Server running on http://localhost:${PORT}/:`);
     });
 }
 
-// Export for Vercel serverless
 export default app;
